@@ -100,6 +100,8 @@
                 <includes>
                   <include>net.sourceforge.htmlunit:*</include>
                   <include>org.apache.httpcomponents:*</include>
+                  <include>xalan:xalan</include>
+                  <include>xerces:xercesImpl</include>
                 </includes>
               </artifactSet>
               <promoteTransitiveDependencies>true</promoteTransitiveDependencies>
@@ -109,6 +111,24 @@
                   <shadedPattern>hidden.jth.org.apache.http</shadedPattern>
                 </relocation>
               </relocations>
+              <filters>
+                <filter>
+                  <artifact>xalan:xalan</artifact>
+                  <excludes>
+                    <!-- disable Xalan-J JAXP registration -->
+                    <exclude>META-INF/services/javax.xml.*</exclude>
+                  </excludes>
+                </filter>
+                <filter>
+                  <artifact>xerces:xercesImpl</artifact>
+                  <excludes>
+                    <!-- disable Xerces JAXP registration -->
+                    <exclude>META-INF/services/javax.xml.*</exclude>
+                    <exclude>META-INF/services/org.w3c.*</exclude>
+                    <exclude>META-INF/services/org.xml.*</exclude>
+                  </excludes>
+                </filter>
+              </filters>
             </configuration>
           </execution>
         </executions>
