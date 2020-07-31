@@ -101,6 +101,7 @@
                   <include>net.sourceforge.htmlunit:*</include>
                   <include>org.apache.httpcomponents:*</include>
                   <include>org.apache.commons:commons-lang3</include>
+                  <include>org.apache.commons:commons-text</include>
                   <include>xalan:xalan</include>
                   <include>xerces:xercesImpl</include>
                 </includes>
